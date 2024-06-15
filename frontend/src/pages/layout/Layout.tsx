@@ -51,12 +51,12 @@ const Layout = () => {
     const handleResize = () => {
       if (window.innerWidth < 480) {
         setShareLabel(undefined)
-        setHideHistoryLabel('Hide history')
-        setShowHistoryLabel('Show history')
+        setHideHistoryLabel('隐藏记录')
+        setShowHistoryLabel('显示记录')
       } else {
         setShareLabel('Share')
-        setHideHistoryLabel('Hide chat history')
-        setShowHistoryLabel('Show chat history')
+        setHideHistoryLabel('隐藏聊天记录')
+        setShowHistoryLabel('显示聊天记录')
       }
     }
 

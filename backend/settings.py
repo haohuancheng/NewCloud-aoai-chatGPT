@@ -41,11 +41,11 @@ class _UiSettings(BaseSettings):
         env_ignore_empty=True
     )
 
-    title: str = "Contoso"
+    title: str = "NewCloud"
     logo: Optional[str] = None
     chat_logo: Optional[str] = None
-    chat_title: str = "Start chatting"
-    chat_description: str = "This chatbot is configured to answer your questions"
+    chat_title: str = "开始聊天了！"
+    chat_description: str = "本聊天机器人配置为回答您的问题。"
     favicon: str = "/favicon.ico"
     show_share_button: bool = True
 
