@@ -13,10 +13,10 @@ import styles from './Layout.module.css'
 const Layout = () => {
   const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false)
   const [copyClicked, setCopyClicked] = useState<boolean>(false)
-  const [copyText, setCopyText] = useState<string>('Copy URL')
-  const [shareLabel, setShareLabel] = useState<string | undefined>('Share')
-  const [hideHistoryLabel, setHideHistoryLabel] = useState<string>('Hide chat history')
-  const [showHistoryLabel, setShowHistoryLabel] = useState<string>('Show chat history')
+  const [copyText, setCopyText] = useState<string>('复制 URL 地址')
+  const [shareLabel, setShareLabel] = useState<string | undefined>('分享')
+  const [hideHistoryLabel, setHideHistoryLabel] = useState<string>('隐藏聊天记录')
+  const [showHistoryLabel, setShowHistoryLabel] = useState<string>('显示聊天记录')
   const appStateContext = useContext(AppStateContext)
   const ui = appStateContext?.state.frontendSettings?.ui
 
@@ -27,7 +27,7 @@ const Layout = () => {
   const handleSharePanelDismiss = () => {
     setIsSharePanelOpen(false)
     setCopyClicked(false)
-    setCopyText('Copy URL')
+    setCopyText('复制 URL 地址')
   }
 
   const handleCopyClick = () => {
@@ -54,7 +54,7 @@ const Layout = () => {
         setHideHistoryLabel('隐藏记录')
         setShowHistoryLabel('显示记录')
       } else {
-        setShareLabel('Share')
+        setShareLabel('分享')
         setHideHistoryLabel('隐藏聊天记录')
         setShowHistoryLabel('显示聊天记录')
       }
