@@ -108,7 +108,7 @@ const Layout = () => {
           ]
         }}
         dialogContentProps={{
-          title: 'Share the web app',
+          title: '分享这个 web 应用',
           showCloseButton: true
         }}>
         <Stack horizontal verticalAlign="center" style={{ gap: '8px' }}>

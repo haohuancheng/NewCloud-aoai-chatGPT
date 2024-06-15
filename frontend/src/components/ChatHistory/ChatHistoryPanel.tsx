@@ -116,16 +116,16 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
               marginRight: 'auto',
               paddingLeft: '20px'
             }}>
-            Chat history
+            聊天记录
           </Text>
         </StackItem>
         <Stack verticalAlign="start">
           <Stack horizontal styles={commandBarButtonStyle}>
             <CommandBarButton
               iconProps={{ iconName: 'More' }}
-              title={'Clear all chat history'}
+              title={'清空聊天记录'}
               onClick={onShowContextualMenu}
-              aria-label={'clear all chat history'}
+              aria-label={'清空聊天记录'}
               styles={commandBarStyle}
               role="button"
               id="moreButton"
