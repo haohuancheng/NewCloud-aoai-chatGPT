@@ -52,11 +52,11 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
 
   const clearAllDialogContentProps = {
     type: DialogType.close,
-    title: !clearingError ? 'Are you sure you want to clear all chat history?' : 'Error deleting all of chat history',
-    closeButtonAriaLabel: 'Close',
+    title: !clearingError ? '您确认要清空所有的聊天历史记录吗？' : '删除所有聊天历史记录错误。',
+    closeButtonAriaLabel: '关闭',
     subText: !clearingError
-      ? 'All chat history will be permanently removed.'
-      : 'Please try again. If the problem persists, please contact the site administrator.'
+      ? '所有聊天历史记录将会被删除。'
+      : '请重试。如果问题还存在，请联系网站管理员。'
   }
 
   const modalProps = {
@@ -67,7 +67,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
   }
 
   const menuItems: IContextualMenuItem[] = [
-    { key: 'clearAll', text: 'Clear all chat history', iconProps: { iconName: 'Delete' } }
+    { key: 'clearAll', text: '清空所有聊天记录', iconProps: { iconName: 'Delete' } }
   ]
 
   const handleHistoryClick = () => {
@@ -222,11 +222,11 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
         dialogContentProps={clearAllDialogContentProps}
         modalProps={modalProps}>
         <DialogFooter>
-          {!clearingError && <PrimaryButton onClick={onClearAllChatHistory} disabled={clearing} text="Clear All" />}
+          {!clearingError && <PrimaryButton onClick={onClearAllChatHistory} disabled={clearing} text="全部清空" />}
           <DefaultButton
             onClick={onHideClearAllDialog}
             disabled={clearing}
-            text={!clearingError ? 'Cancel' : 'Close'}
+            text={!clearingError ? '取消' : '关闭'}
           />
         </DialogFooter>
       </Dialog>
