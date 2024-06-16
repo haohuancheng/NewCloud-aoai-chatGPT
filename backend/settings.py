@@ -41,11 +41,11 @@ class _UiSettings(BaseSettings):
         env_ignore_empty=True
     )
 
-    title: str = "NewCloud AIGC"
+    title: str = "NewAIGC"
     logo: Optional[str] = None
     chat_logo: Optional[str] = None
     chat_title: str = "开始 AI 聊天"
-    chat_description: str = "本聊天机器人通过生成式人工智能（AIGC）的配置来回答您的问题。"
+    chat_description: str = "本聊天机器人通过生成式人工智能（AIGC）来回答您的问题。"
     favicon: str = "/favicon.ico"
     show_share_button: bool = True
 

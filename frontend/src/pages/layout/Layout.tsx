@@ -51,8 +51,8 @@ const Layout = () => {
     const handleResize = () => {
       if (window.innerWidth < 480) {
         setShareLabel(undefined)
-        setHideHistoryLabel('隐藏记录')
-        setShowHistoryLabel('显示记录')
+        setHideHistoryLabel('隐藏')
+        setShowHistoryLabel('记录')
       } else {
         setShareLabel('分享')
         setHideHistoryLabel('隐藏聊天记录')
