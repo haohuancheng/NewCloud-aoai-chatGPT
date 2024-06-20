@@ -5,7 +5,7 @@
   "modifydate": "20240621",
   "type": "module",
   "scripts": {
-    "dev": "tsc && vite build",
+    "dev": "vite",
     "build": "tsc && vite build",
     "watch": "tsc && vite build --watch",
     "test": "jest",
