@@ -1,3 +1,12 @@
+"""
+2024.6.21
+ADD: 读取历史记录，显示数量。
+
+
+
+"""
+
+
 import copy
 import json
 import os

@@ -1,3 +1,6 @@
+//           https://developer.microsoft.com/en-us/fluentui#/controls/web/button
+// 按钮图标： https://developer.microsoft.com/en-us/fluentui#/styles/web/icons
+
 import * as React from 'react'
 import { useContext, useEffect, useRef, useState } from 'react'
 import {
@@ -118,7 +121,8 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
     appStateContext?.dispatch({ type: 'UPDATE_CURRENT_CHAT', payload: item })
   }
 
-  const truncatedTitle = item?.title?.length > 28 ? `${item.title.substring(0, 28)} ...` : item.title
+  // const truncatedTitle = item?.title?.length > 45 ? `${item.title.substring(0, 45)} ...` : item.title
+  const truncatedTitle = item?.title?item.title:''
 
   const handleSaveEdit = async (e: any) => {
     e.preventDefault()
@@ -263,7 +267,15 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
                   title="编辑"
                   onClick={onEdit}
                   onKeyDown={e => (e.key === ' ' ? onEdit() : null)}
-                />
+                />      
+                
+                {/* <IconButton
+                  className={styles.itemButton}
+                  iconProps={{ iconName: 'Save' }}
+                  title="保存"
+                  onClick={onEdit}
+                  onKeyDown={e => (e.key === ' ' ? onEdit() : null)}
+                />                                 */}
               </Stack>
             )}
           </Stack>

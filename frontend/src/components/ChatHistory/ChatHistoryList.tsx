@@ -14,8 +14,10 @@ export interface GroupedChatHistory {
 }
 
 const groupByMonth = (entries: Conversation[]) => {
-  const groups: GroupedChatHistory[] = [{ month: '最近', entries: [] }]
+  const groups: GroupedChatHistory[] = [{ month: '最近 ( 总计 ' + entries.length+')', entries: [] }]
   const currentDate = new Date()
+
+  // groups.push({ month: '总计：' + entries.length.toString(), entries: [] })
 
   entries.forEach(entry => {
     const date = new Date(entry.date)
@@ -23,7 +25,8 @@ const groupByMonth = (entries: Conversation[]) => {
     const monthYear = date.toLocaleString('default', { month: 'long', year: 'numeric' })
     const existingGroup = groups.find(group => group.month === monthYear)
 
-    if (daysDifference <= 7) {
+    // 临时改为2天是最近的。
+    if (daysDifference <= 2) {
       groups[0].entries.push(entry)
     } else {
       if (existingGroup) {
