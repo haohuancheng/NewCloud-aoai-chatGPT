@@ -14,9 +14,9 @@ import { nord } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import styles from './Chat.module.css'
 import Contoso from '../../assets/newcloud.png'
 import { XSSAllowTags } from '../../constants/xssAllowTags'
-import packageJson  from '../../../package.json';
-const version = packageJson?.version?packageJson.version:'nover';
-const modifydate=packageJson?.modifydate?packageJson.modifydate:'2024';
+// import packageJson  from 'package-lock.json';
+// const version = packageJson?.version?packageJson.version:'1.0';
+// const modifydate=packageJson?.modifydate?packageJson.modifydate:'2024';
 
 import {
   ChatMessage,
@@ -770,10 +770,10 @@ const Chat = () => {
           <div className={styles.chatContainer}>
             {!messages || messages.length < 1 ? (
               <Stack className={styles.chatEmptyState}>
-                <img src={ui?.chat_logo ? ui.chat_logo : Contoso} className={styles.chatIcon} aria-hidden="true" title="北京蓝云天 2024(R) 0616" />
+                <img src={ui?.chat_logo ? ui.chat_logo : Contoso} className={styles.chatIcon} aria-hidden="true" title="北京蓝云天 2024(R) 0621" />
                 <h1 className={styles.chatEmptyStateTitle}>{ui?.chat_title}</h1>
                 <h2 className={styles.chatEmptyStateSubtitle}>{ui?.chat_description}</h2>
-                <h4 className={styles.chatEmptyStateSubtitle}>版本：{version} ({modifydate})</h4>
+                {/* <h4 className={styles.chatEmptyStateSubtitle}>版本：{version} ({modifydate})</h4> */}
               </Stack>
             ) : (
               <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? '40px' : '0px' }} role="log">
