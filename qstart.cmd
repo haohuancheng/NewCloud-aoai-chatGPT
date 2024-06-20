@@ -24,7 +24,7 @@ if "%errorlevel%" neq "0" (
 echo.
 echo Building frontend
 echo.
-call npm run dev
+call npm run build
 if "%errorlevel%" neq "0" (
     echo Failed to build frontend
     exit /B %errorlevel%
