@@ -15,8 +15,8 @@ import styles from './Chat.module.css'
 import Contoso from '../../assets/newcloud.png'
 import { XSSAllowTags } from '../../constants/xssAllowTags'
 import packageJson  from '../../../package.json';
-const version = packageJson.version;
-const modifydate=packageJson.modifydate;
+const version = packageJson?.version?packageJson.version:'nover';
+const modifydate=packageJson?.modifydate?packageJson.modifydate:'2024';
 
 import {
   ChatMessage,
