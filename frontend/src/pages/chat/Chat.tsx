@@ -773,7 +773,7 @@ const Chat = () => {
                 <img src={ui?.chat_logo ? ui.chat_logo : Contoso} className={styles.chatIcon} aria-hidden="true" />
                 <h1 className={styles.chatEmptyStateTitle}>{ui?.chat_title}</h1>
                 <h2 className={styles.chatEmptyStateSubtitle}>{ui?.chat_description}</h2>
-                <h3 className={styles.chatEmptyStateSubtitle}><small>北京蓝云天 2024(R) 0621</small></h3>
+                <p className={styles.chatEmptyStateSubtitle}><small>北京蓝云天 2024(R)0621</small></p>
                 {/* <h4 className={styles.chatEmptyStateSubtitle}>版本：{version} ({modifydate})</h4> */}
               </Stack>
             ) : (
