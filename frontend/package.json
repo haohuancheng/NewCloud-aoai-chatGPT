@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": true,
   "version": "1.0.1",
-  "modifydate": "20240623",
+  "modifydate": "20240624",
   "type": "module",
   "scripts": {
     "dev": "vite",

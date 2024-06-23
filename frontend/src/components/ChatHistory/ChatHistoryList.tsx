@@ -55,7 +55,7 @@ const groupByMonth = (entries: Conversation[]) => {
       return dateB.getTime() - dateA.getTime()
     })
   })
-  if (groups.length > 1) groups[0].month = groups[0].month + ' 本周:' + groups[0].entries.length + ' 条'
+  if (groups.length > 1) groups[0].month = groups[0].month + '   本周：' + groups[0].entries.length + ' 条'
   return groups
 }
 
