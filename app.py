@@ -92,7 +92,7 @@ frontend_settings = {
         "logo": app_settings.ui.logo,
         "chat_logo": app_settings.ui.chat_logo or app_settings.ui.logo,
         "chat_title": app_settings.ui.chat_title,
-        "chat_description": app_settings.ui.chat_description,
+        "chat_description": app_settings.ui.chat_description,        
         "show_share_button": app_settings.ui.show_share_button,
     },
     "sanitize_answer": app_settings.base_settings.sanitize_answer,
@@ -620,6 +620,30 @@ async def list_conversations():
     ## return the conversation ids
 
     return jsonify(conversations), 200
+
+@bp.route("/history/listcount", methods=["GET"])
+async def list_conversations_count():
+    offset = request.args.get("offset", 0)
+    authenticated_user = get_authenticated_user_details(request_headers=request.headers)
+    user_id = authenticated_user["user_principal_id"]
+    user_name = authenticated_user["user_name"]
+    
+    ## make sure cosmos is configured
+    cosmos_conversation_client = init_cosmosdb_client()
+    if not cosmos_conversation_client:
+        raise Exception("CosmosDB is not configured or not working")
+
+    ## get the conversations from cosmos
+    conversations = await cosmos_conversation_client.get_conversations(
+        user_id, offset=offset, limit=200
+    )
+    await cosmos_conversation_client.cosmosdb_client.close()
+    if not isinstance(conversations, list):
+        return jsonify({"error": f"No conversations for {user_id} were found"}), 404
+
+    ## return the conversation ids
+
+    return jsonify(len(conversations)), 200
 
 
 @bp.route("/history/read", methods=["POST"])

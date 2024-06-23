@@ -115,7 +115,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
               fontSize: '18px',
               marginRight: 'auto',
               paddingLeft: '20px'
-            }}>
+            }}> 
             聊天记录
           </Text>
         </StackItem>
