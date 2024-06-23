@@ -45,7 +45,7 @@ class _UiSettings(BaseSettings):
     logo: Optional[str] = None
     chat_logo: Optional[str] = None
     chat_title: str = "开始 AI 聊天"
-    chat_description: str = "本聊天机器人通过生成式人工智能（AIGC）来回答您的问题。"
+    chat_description: str = "本聊天机器人通过生成式人工智能（AIGC）来帮助您解决问题"
     favicon: str = "/favicon.ico"
     show_share_button: bool = True
 
