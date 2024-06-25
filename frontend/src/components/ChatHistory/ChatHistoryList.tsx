@@ -14,7 +14,7 @@ export interface GroupedChatHistory {
 }
 
 const groupByMonth = (entries: Conversation[]) => {
-  const groups: GroupedChatHistory[] = [{ month: '总计：' + entries.length + ' 条', entries: [] }]
+  const groups: GroupedChatHistory[] = [{ month: '总计', entries: [] }]
   const currentDate = new Date()
 
   entries.forEach(entry => {
@@ -54,8 +54,11 @@ const groupByMonth = (entries: Conversation[]) => {
       const dateB = new Date(b.date)
       return dateB.getTime() - dateA.getTime()
     })
+    group.month += ' :  ' + group.entries.length + ' 条'
   })
-  if (groups.length > 1) groups[0].month = groups[0].month + '   本周：' + groups[0].entries.length + ' 条'
+
+  if (groups.length > 1) groups[0].month = groups[0].month + '   本周'
+
   return groups
 }
 
