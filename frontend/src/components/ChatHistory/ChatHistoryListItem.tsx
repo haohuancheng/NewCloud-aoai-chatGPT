@@ -241,7 +241,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
                 <Text
                   role="alert"
                   aria-label={errorRename}
-                  style={{ fontSize: 12, fontWeight: 400, color: 'rgb(164,38,44)' }}>
+                  style={{ fontSize: 10, fontWeight: 600, color: 'rgb(164,38,44)' }}>
                   {errorRename}
                 </Text>
               )}

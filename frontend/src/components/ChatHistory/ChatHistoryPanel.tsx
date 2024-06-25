@@ -112,7 +112,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
             style={{
               alignSelf: 'center',
               fontWeight: '600',
-              fontSize: '18px',
+              fontSize: '12px',
               marginRight: 'auto',
               paddingLeft: '20px'
             }}> 
@@ -175,7 +175,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                 <Stack>
                   <Stack horizontalAlign="center" verticalAlign="center" style={{ width: '100%', marginTop: 10 }}>
                     <StackItem>
-                      <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16 }}>
+                      <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
                         {appStateContext?.state.isCosmosDBAvailable?.status && (
                           <span>{appStateContext?.state.isCosmosDBAvailable?.status}</span>
                         )}
@@ -183,7 +183,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                       </Text>
                     </StackItem>
                     <StackItem>
-                      <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14 }}>
+                      <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
                         <span>Chat history can't be saved at this time</span>
                       </Text>
                     </StackItem>
@@ -206,7 +206,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                     />
                   </StackItem>
                   <StackItem>
-                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 14 }}>
+                    <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
                       <span style={{ whiteSpace: 'pre-wrap' }}>Loading chat history</span>
                     </Text>
                   </StackItem>
