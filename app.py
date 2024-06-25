@@ -643,8 +643,10 @@ async def list_conversations_count():
 
     ## return the conversation ids
 
-    return jsonify(len(conversations)), 200
-
+    # return jsonify(len(conversations) + user_name), 200
+    response = [len(conversations), user_name]
+    
+    return jsonify(response), 200
 
 @bp.route("/history/read", methods=["POST"])
 async def get_conversation():
