@@ -54,9 +54,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
     type: DialogType.close,
     title: !clearingError ? '您确认要清空所有的聊天历史记录吗？' : '删除所有聊天历史记录错误。',
     closeButtonAriaLabel: '关闭',
-    subText: !clearingError
-      ? '所有聊天历史记录将会被删除。'
-      : '请重试。如果问题还存在，请联系网站管理员。'
+    subText: !clearingError ? '所有聊天历史记录将会被删除。' : '请重试。如果问题还存在，请联系网站管理员。'
   }
 
   const modalProps = {
@@ -111,11 +109,11 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
             aria-level={2}
             style={{
               alignSelf: 'center',
-              fontWeight: '600',
-              fontSize: '12px',
+              fontWeight: '500',
+              fontSize: '16px',
               marginRight: 'auto',
               paddingLeft: '20px'
-            }}> 
+            }}>
             聊天记录
           </Text>
         </StackItem>
@@ -154,6 +152,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
           root: {
             display: 'flex',
             flexGrow: 1,
+            fontSize: '16px',
             flexDirection: 'column',
             paddingTop: '2.5px',
             maxWidth: '100%'
@@ -161,6 +160,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
         }}
         style={{
           display: 'flex',
+          fontSize: '16px',
           flexGrow: 1,
           flexDirection: 'column',
           flexWrap: 'wrap',
@@ -175,7 +175,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                 <Stack>
                   <Stack horizontalAlign="center" verticalAlign="center" style={{ width: '100%', marginTop: 10 }}>
                     <StackItem>
-                      <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
+                      <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16 }}>
                         {appStateContext?.state.isCosmosDBAvailable?.status && (
                           <span>{appStateContext?.state.isCosmosDBAvailable?.status}</span>
                         )}
@@ -183,7 +183,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                       </Text>
                     </StackItem>
                     <StackItem>
-                      <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
+                      <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16 }}>
                         <span>Chat history can't be saved at this time</span>
                       </Text>
                     </StackItem>
@@ -206,7 +206,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
                     />
                   </StackItem>
                   <StackItem>
-                    <Text style={{ alignSelf: 'center', fontWeight: '600', fontSize: 12 }}>
+                    <Text style={{ alignSelf: 'center', fontWeight: '400', fontSize: 16 }}>
                       <span style={{ whiteSpace: 'pre-wrap' }}>Loading chat history</span>
                     </Text>
                   </StackItem>
@@ -223,11 +223,7 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
         modalProps={modalProps}>
         <DialogFooter>
           {!clearingError && <PrimaryButton onClick={onClearAllChatHistory} disabled={clearing} text="全部清空" />}
-          <DefaultButton
-            onClick={onHideClearAllDialog}
-            disabled={clearing}
-            text={!clearingError ? '取消' : '关闭'}
-          />
+          <DefaultButton onClick={onHideClearAllDialog} disabled={clearing} text={!clearingError ? '取消' : '关闭'} />
         </DialogFooter>
       </Dialog>
     </section>
