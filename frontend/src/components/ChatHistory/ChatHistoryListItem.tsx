@@ -284,7 +284,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
       {errorDelete && (
         <Text
           styles={{
-            root: { color: 'red', marginTop: 5, fontSize: 10 }
+            root: { color: 'red', marginTop: 5, fontSize: 16 }
           }}>
           Error: could not delete item
         </Text>

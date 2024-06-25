@@ -152,7 +152,6 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
           root: {
             display: 'flex',
             flexGrow: 1,
-            fontSize: '16px',
             flexDirection: 'column',
             paddingTop: '2.5px',
             maxWidth: '100%'
@@ -160,7 +159,6 @@ export function ChatHistoryPanel(_props: ChatHistoryPanelProps) {
         }}
         style={{
           display: 'flex',
-          fontSize: '16px',
           flexGrow: 1,
           flexDirection: 'column',
           flexWrap: 'wrap',
