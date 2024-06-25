@@ -127,11 +127,12 @@ class CosmosConversationClient():
         else:
             return conversations[0]
  
-    async def create_message(self, uuid, conversation_id, user_id, input_message: dict):
+    async def create_message(self, uuid, conversation_id, user_id, user_name, input_message: dict):
         message = {
             'id': uuid,
             'type': 'message',
             'userId' : user_id,
+            'user_name':user_name,
             'createdAt': datetime.utcnow().isoformat(),
             'updatedAt': datetime.utcnow().isoformat(),
             'conversationId' : conversation_id,

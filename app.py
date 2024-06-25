@@ -402,7 +402,8 @@ def get_frontend_settings():
 async def add_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
     user_id = authenticated_user["user_principal_id"]
-
+    user_name = authenticated_user["user_name"]
+    
     ## check request for conversation_id
     request_json = await request.get_json()
     conversation_id = request_json.get("conversation_id", None)
@@ -432,6 +433,7 @@ async def add_conversation():
                 uuid=str(uuid.uuid4()),
                 conversation_id=conversation_id,
                 user_id=user_id,
+                user_name=user_name,
                 input_message=messages[-1],
             )
             if createdMessageValue == "Conversation not found":
@@ -460,7 +462,8 @@ async def add_conversation():
 async def update_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
     user_id = authenticated_user["user_principal_id"]
-
+    user_name = authenticated_user["user_name"]
+  
     ## check request for conversation_id
     request_json = await request.get_json()
     conversation_id = request_json.get("conversation_id", None)
@@ -485,6 +488,7 @@ async def update_conversation():
                     uuid=str(uuid.uuid4()),
                     conversation_id=conversation_id,
                     user_id=user_id,
+                    user_name=user_name,
                     input_message=messages[-2],
                 )
             # write the assistant message
@@ -492,6 +496,7 @@ async def update_conversation():
                 uuid=messages[-1]["id"],
                 conversation_id=conversation_id,
                 user_id=user_id,
+                user_name=user_name,                
                 input_message=messages[-1],
             )
         else:
@@ -642,10 +647,8 @@ async def list_conversations_count():
         return jsonify({"error": f"No conversations for {user_id} were found"}), 404
 
     ## return the conversation ids
-
     # return jsonify(len(conversations) + user_name), 200
-    response = [len(conversations), user_name]
-    
+    response = [len(conversations), user_name]    
     return jsonify(response), 200
 
 @bp.route("/history/read", methods=["POST"])
