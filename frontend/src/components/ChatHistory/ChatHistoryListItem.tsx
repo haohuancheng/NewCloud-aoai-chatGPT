@@ -121,8 +121,8 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
     appStateContext?.dispatch({ type: 'UPDATE_CURRENT_CHAT', payload: item })
   }
 
-  // const truncatedTitle = item?.title?.length > 45 ? `${item.title.substring(0, 45)} ...` : item.title
-  const truncatedTitle = item?.title?item.title:''
+  const truncatedTitle = item?.title?.length > 55 ? `${item.title.substring(0, 55)} ...` : item.title
+  // const truncatedTitle = item?.title?item.title:''
 
   const handleSaveEdit = async (e: any) => {
     e.preventDefault()
@@ -251,7 +251,7 @@ export const ChatHistoryListItemCell: React.FC<ChatHistoryListItemCellProps> = (
       ) : (
         <>
           <Stack horizontal verticalAlign={'center'} style={{ width: '100%' }}>
-            <div className={styles.chatTitle}>{truncatedTitle}</div>
+            <div className={styles.chatTitle} title={truncatedTitle}>{truncatedTitle}</div>
             {(isSelected || isHovered) && (
               <Stack horizontal horizontalAlign="end">
                 <IconButton
