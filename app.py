@@ -419,7 +419,7 @@ async def add_conversation():
         if not conversation_id:
             title = await generate_title(request_json["messages"])
             conversation_dict = await cosmos_conversation_client.create_conversation(
-                user_id=user_id, title=title
+                user_id=user_id, user_name=user_name, title=title
             )
             conversation_id = conversation_dict["id"]
             history_metadata["title"] = title
