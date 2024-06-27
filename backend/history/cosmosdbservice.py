@@ -105,6 +105,25 @@ class CosmosConversationClient():
         
         return conversations
 
+    async def get_all_usersmessages(self, user_id, limit, sort_order = 'DESC', offset = 0):
+        # 获取更多用户信息。
+        parameters = [
+            {
+                'name': '@user_id',
+                'value': user_id
+            }
+        ]
+        query = f"SELECT * FROM c order by c.updatedAt {sort_order}"
+        if limit is not None:
+            query += f" offset {offset} limit {limit}" 
+        
+        conversations = []
+        async for item in self.container_client.query_items(query=query, parameters=parameters):
+            conversations.append(item)
+        
+        return conversations
+
+
     async def get_conversation(self, user_id, conversation_id):
         parameters = [
             {

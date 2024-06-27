@@ -651,6 +651,31 @@ async def list_conversations_count():
     response = [len(conversations), user_name]    
     return jsonify(response), 200
 
+@bp.route("/history/listallcount", methods=["GET"])
+async def list_allconversations_count():
+    offset = request.args.get("offset", 0)
+    authenticated_user = get_authenticated_user_details(request_headers=request.headers)
+    user_id = authenticated_user["user_principal_id"]
+    user_name = authenticated_user["user_name"]
+    
+    ## make sure cosmos is configured
+    cosmos_conversation_client = init_cosmosdb_client()
+    if not cosmos_conversation_client:
+        raise Exception("CosmosDB is not configured or not working")
+    
+    ## get the conversations from cosmos
+    conversations = await cosmos_conversation_client.get_all_usersmessages(
+        user_id='user_id', limit=200, offset=offset
+    )
+    await cosmos_conversation_client.cosmosdb_client.close()
+    if not isinstance(conversations, list):
+        return jsonify({"error": f"No conversations for {user_id} were found"}), 404
+
+    ## return the conversation ids
+    # return jsonify(len(conversations) + user_name), 200
+    response = [len(conversations),'实验数据']    
+    return jsonify(conversations), 200
+
 @bp.route("/history/read", methods=["POST"])
 async def get_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
