@@ -113,7 +113,7 @@ class CosmosConversationClient():
                 'value': user_id
             }
         ]
-        query = f"SELECT * FROM c order by c.updatedAt {sort_order}"
+        query = f"SELECT c.updatedAt,c.user_name,c.title FROM c where (c.title!=null) order by c.updatedAt {sort_order}"
         if limit is not None:
             query += f" offset {offset} limit {limit}" 
         
